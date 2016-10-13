@@ -10,8 +10,8 @@ public class Crescendo : MonoBehaviour {
 	private int maxCrescendo = 100;
 	public Image fill1;
 	public Image fill2;
-	public Color maxBar = Color.cyan;
-	public Color notMaxBar = Color.magenta;
+	public Color maxBar = Color.magenta;
+	public Color notMaxBar = Color.cyan;
 
 	public Slider crescendoSlider_P1;
 	public Slider crescendoSlider_P2;
