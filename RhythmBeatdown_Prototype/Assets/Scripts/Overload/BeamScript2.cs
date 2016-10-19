@@ -2,18 +2,12 @@
 using System.Collections;
 using UnityEngine.UI;
 
-public class BeamScript : MonoBehaviour {
+public class BeamScript2 : MonoBehaviour {
 
     [Header("Prefabs")]
     public GameObject[] beamLineRendererPrefab;
     public GameObject[] beamStartPrefab;
     public GameObject[] beamEndPrefab;
-
-    //JULIE'S VARIABLES
-    public GameObject BeamTarget;
-    public GameObject StartBeam;
-    Vector3 targetPos;
-    Vector3 beamStartPos;
 
     private int currentBeam = 0;
 
@@ -43,10 +37,6 @@ public class BeamScript : MonoBehaviour {
             endOffSetSlider.value = beamEndOffset;
         if (scrollSpeedSlider)
             scrollSpeedSlider.value = textureScrollSpeed;
-
-        //Julie's stuff
-        beamStartPos = StartBeam.transform.position;
-        targetPos = BeamTarget.transform.position;
     }
 
     // Update is called once per frame
@@ -69,64 +59,36 @@ public class BeamScript : MonoBehaviour {
             Destroy(beam);
         }
 
-
-        //Original Raycast
-        //if (Input.GetMouseButton(1))
-        //{
-        //    Ray ray = Camera.main.ScreenPointToRay(Input.mousePosition);
-        //    RaycastHit hit;
-        //    if (Physics.Raycast(ray.origin, ray.direction, out hit))
-        //    {
-        //        Vector3 tdir = hit.point - transform.position;
-        //        ShootBeamInDir(transform.position, tdir);
-        //    }
-        //}
-
-        //Attempt #2
-        //Beam is still sitting at origin FIXED
-        //Beam has very short range
         if (Input.GetMouseButton(1))
         {
-            Ray ray = new Ray(beamStartPos, targetPos);
+            Ray ray = Camera.main.ScreenPointToRay(Input.mousePosition);
             RaycastHit hit;
-            if (Physics.Raycast(beamStartPos, targetPos, out hit))
+            if (Physics.Raycast(ray.origin, ray.direction, out hit))
             {
-                Vector3 tdir = BeamTarget.transform.position - transform.position;
+                Vector3 tdir = hit.point - transform.position;
                 ShootBeamInDir(transform.position, tdir);
             }
         }
-
-        //Attempt #1
-        //if (Input.GetMouseButton(1))
-        //{
-        //    Ray ray = GameObject.(Input.mousePosition);
-        //    RaycastHit hit;
-        //    if (Physics.Raycast(ray.origin, ray.direction, out hit))
-        //    {
-        //        Vector3 raycastDir = BeamTarget.transform.position - transform.position;
-        //        Physics.Raycast(transform.position, raycastDir);
-        //    }
-        //}
-
-        if (Input.GetKeyDown(KeyCode.RightArrow)) //4 next if commands are just hotkeys for cycling beams
+		
+		if (Input.GetKeyDown(KeyCode.RightArrow)) //4 next if commands are just hotkeys for cycling beams
         {
             nextBeam();
         }
 
-        if (Input.GetKeyDown(KeyCode.D))
-        {
-            nextBeam();
-        }
+		if (Input.GetKeyDown(KeyCode.D))
+		{
+			nextBeam();
+		}
 
-        if (Input.GetKeyDown(KeyCode.A))
-        {
-            previousBeam();
-        }
+		if (Input.GetKeyDown(KeyCode.A))
+		{
+			previousBeam();
+		}
         else if (Input.GetKeyDown(KeyCode.LeftArrow))
         {
             previousBeam();
         }
-
+		
     }
 
     public void nextBeam() // Next beam
@@ -139,10 +101,10 @@ public class BeamScript : MonoBehaviour {
         if (textBeamName)
             textBeamName.text = beamLineRendererPrefab[currentBeam].name;
     }
-
-    public void previousBeam() // Previous beam
+	
+	    public void previousBeam() // Previous beam
     {
-        if (currentBeam > -0)
+        if (currentBeam > - 0)
             currentBeam--;
         else
             currentBeam = beamLineRendererPrefab.Length - 1;
@@ -150,7 +112,7 @@ public class BeamScript : MonoBehaviour {
         if (textBeamName)
             textBeamName.text = beamLineRendererPrefab[currentBeam].name;
     }
-
+	
 
     public void UpdateEndOffset()
     {
