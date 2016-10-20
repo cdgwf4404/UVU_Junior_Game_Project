@@ -213,10 +213,10 @@ public class TempShoot : MonoBehaviour {
 				}
 
 
-				print (Lists.p1aprojectilelist.Count);
-				foreach (GameObject obj in Lists.p1aprojectilelist) {
-					print (obj.name);
-				}
+				//print (Lists.p1aprojectilelist.Count);
+				//foreach (GameObject obj in Lists.p1aprojectilelist) {
+				//	print (obj.name);
+				//}
 
 //			tempRigidBody.name = "P1_Bullet";
 //			ProjectileLists.p1List.Add (tempRigidBody);
