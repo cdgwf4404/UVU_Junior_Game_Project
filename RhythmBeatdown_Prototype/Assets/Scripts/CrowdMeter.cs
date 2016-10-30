@@ -14,9 +14,17 @@ public class CrowdMeter : MonoBehaviour {
 	void Start () {
 		crowdSlider = this.GetComponent<Slider> ();
 	}
+	void OnEnable()
+	{
+		TakeDamage.gotHit += UpdateCrowdState;
+	}
+	void OnDisable()
+	{
+		TakeDamage.gotHit -= UpdateCrowdState;
+	}
 	
 	// Update is called once per frame
-	void Update () {
+	void UpdateCrowdState () {
 
 		if (currentCrowdState > maxvalue) {
 			currentCrowdState = maxvalue;

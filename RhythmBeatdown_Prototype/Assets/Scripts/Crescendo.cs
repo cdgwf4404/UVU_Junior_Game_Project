@@ -20,9 +20,16 @@ public class Crescendo : MonoBehaviour {
 	void Start () {
 
 	}
-	
+	void OnEnable()
+	{
+		TakeDamage.gotHit += UpdateCresBar;
+	}
+	void OnDisable()
+	{
+		TakeDamage.gotHit -= UpdateCresBar;
+	}
 	// Update is called once per frame
-	void Update () {
+	void UpdateCresBar () {
 		if (crescendoVal1 > maxCrescendo) {
 		
 			crescendoVal1 = maxCrescendo;

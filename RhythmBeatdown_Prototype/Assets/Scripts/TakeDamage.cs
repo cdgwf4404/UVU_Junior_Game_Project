@@ -2,6 +2,9 @@
 using System.Collections;
 
 public class TakeDamage : MonoBehaviour {
+	
+	public delegate void DamageAction ();
+	public static event DamageAction gotHit;
 
 	public int crowdDamage = 2;
 	public int crescendoIncrease = 1;
@@ -101,12 +104,18 @@ public class TakeDamage : MonoBehaviour {
 	void Damage()
 	{
 		if (this.gameObject.tag == "Player_Two") {
-
+			if (gotHit != null)
+			{
+				gotHit ();
+			}
 			CrowdMeter.currentCrowdState -= crowdDamage;
 			Crescendo.crescendoVal1 += crescendoIncrease;
 
 		} else if (this.gameObject.tag == "Player_One") {
-
+			if (gotHit != null)
+			{
+				gotHit ();
+			}
 			CrowdMeter.currentCrowdState += crowdDamage;
 			Crescendo.crescendoVal2 += crescendoIncrease;
 		}
