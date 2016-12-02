@@ -19,7 +19,8 @@ public class ProjectileScript2 : MonoBehaviour
 
     void OnCollisionEnter(Collision hit)
     {
-        if (!hasCollided) {
+        if (!hasCollided)
+        {
             hasCollided = true;
             print("Collided");
 
@@ -27,8 +28,26 @@ public class ProjectileScript2 : MonoBehaviour
             impactParticle = Instantiate(impactParticle, transform.position, Quaternion.FromToRotation(Vector3.up, impactNormal)) as GameObject;
 
             //destroy upon collision
-            Destroy(projectileParticle, 3f);
-            Destroy(impactParticle, 5f);
+            Destroy(projectileParticle, 0.5f);
+            Destroy(impactParticle, 0.5f);
+            Destroy(gameObject);
+            print("destroyed");
+        }
+    }
+
+    void OnTriggerEnter(Collider hit)
+    {
+        if (!hasCollided)
+        {
+            hasCollided = true;
+            print("Collided");
+
+            //instantiate impact particle upon collision
+            impactParticle = Instantiate(impactParticle, transform.position, Quaternion.FromToRotation(Vector3.up, impactNormal)) as GameObject;
+
+            //destroy upon collision
+            Destroy(projectileParticle, 0.5f);
+            Destroy(impactParticle, 0.5f);
             Destroy(gameObject);
             print("destroyed");
         }
