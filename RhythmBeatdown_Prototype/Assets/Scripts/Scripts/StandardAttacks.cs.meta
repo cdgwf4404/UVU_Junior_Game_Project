@@ -1,10 +1,24 @@
 fileFormatVersion: 2
 guid: 0746e9ea3fd9e23439df634184acebb5
-timeCreated: 1477609221
+timeCreated: 1480731880
 licenseType: Free
 MonoImporter:
   serializedVersion: 2
-  defaultReferences: []
+  defaultReferences:
+  - projectileH: {fileID: 1000012685324702, guid: 73e72a979692726469d7739f18b9acc4,
+      type: 2}
+  - projectileM: {fileID: 1000011517241650, guid: 30bd2cefc1d6df848933b08015c7fa7c,
+      type: 2}
+  - projectileL: {instanceID: 0}
+  - p1SpawnPointH: {fileID: 1000012685324702, guid: 73e72a979692726469d7739f18b9acc4,
+      type: 2}
+  - p1SpawnPointM: {fileID: 1000011517241650, guid: 30bd2cefc1d6df848933b08015c7fa7c,
+      type: 2}
+  - p1SpawnPointL: {fileID: 1000010472530076, guid: bf5192c09a844274ca9fea0b8b40162d,
+      type: 2}
+  - p2SpawnPointH: {instanceID: 0}
+  - p2SpawnPointM: {instanceID: 0}
+  - p2SpawnPointL: {instanceID: 0}
   executionOrder: 0
   icon: {instanceID: 0}
   userData: 
