@@ -217,6 +217,13 @@ public class InputManager : MonoBehaviour {
 			}
 		}
 
+		if (Input.GetButtonDown ("X360_RBumper") || Input.GetKeyDown (KeyCode.C)) {
+			if (P1_RBump != null) {
+				P1_RBump ();
+				print ("firing p1 rbumper");
+			}
+		}
+
 //Don't need single bumber presses but will save for other situations
 
 //		if (Input.GetButtonDown("X360_LBumper"))
